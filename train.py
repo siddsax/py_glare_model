@@ -484,11 +484,11 @@ optimize(num_iterations=1)
 optimize(num_iterations=99)  # We already performed 1 iteration above.
 # print_validation_accuracy(show_example_errors=True)
 
-# optimize(num_iterations=900)  # We performed 100 iterations above.
+optimize(num_iterations=900)  # We performed 100 iterations above.
 # print_validation_accuracy(show_example_errors=True)
 
-# optimize(num_iterations=9000)  # We performed 1000 iterations above.
-# print_validation_accuracy(show_confusion_matrix=True)
+optimize(num_iterations=9000)  # We performed 1000 iterations above.
+print_validation_accuracy(show_confusion_matrix=True)
 
 export_path = 'glare_model'
 
@@ -534,8 +534,8 @@ builder.add_meta_graph_and_variables(
         tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY:
             prediction_signature,
     },
-    # main_op=tf.tables_initializer(),
-    main_op=tf.saved_model.main_op.main_op(),
+    main_op=tf.tables_initializer(),
+    # main_op=tf.saved_model.main_op.main_op(),
     strip_default_attrs=True)
 
 builder.save()
